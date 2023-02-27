@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SDVideoController.h"
+#import "SDVideoUtils.h"
 
 @interface ViewController ()
 
@@ -35,6 +36,7 @@
     config.returnViewController = self;
     config.returnBlock = ^(NSString *mergeVideoPathString) {
         NSLog(@"合成路径 %@",mergeVideoPathString);
+        [SDVideoUtils saveToPhotoWithUrl:[NSURL URLWithString:mergeVideoPathString]];
     };
 
     SDVideoMusicModel *musicModel = [[SDVideoMusicModel alloc] init];

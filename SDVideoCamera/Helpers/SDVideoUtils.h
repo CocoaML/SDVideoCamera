@@ -62,5 +62,7 @@
 /// @param pathType 路径类型
 + (NSString *)getSandboxFilePathWithPathType:(VideoFilePathType)pathType;
 
+/// 视频保存相册
++ (void)saveToPhotoWithUrl:(NSURL *)url;
 @end
 

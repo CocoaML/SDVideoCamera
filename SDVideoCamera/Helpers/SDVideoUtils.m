@@ -16,6 +16,7 @@ typedef enum {
 
 #import "SDVideoUtils.h"
 #import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
 
 @implementation SDVideoUtils
 
@@ -331,6 +332,13 @@ typedef enum {
         }
     }
     return videoDegress;
+}
+
+#pragma mark 视频保存相册
++ (void)saveToPhotoWithUrl:(NSURL *)url {
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:url];
+    } completionHandler:nil];
 }
 
 @end
